@@ -1,0 +1,43 @@
+<html>
+  <head>
+	<title>Stream</title>
+	 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type=text/javascript>
+		$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+	</script>
+	<script type=text/javascript>
+	$(function() {
+    	$('.left').bind('click', function() {
+    		console.log("left")
+    		$.getJSON("http://" +location.hostname+":4040"+"/", {
+    			a: 0,
+    			dataType: 'jsonp',
+    			crossDomain: true,
+    			async: false,
+      		}, function(data) {
+        $("#status").text(data.result);
+    	});
+      return false;
+    });
+    	$('.right').bind('click', function() {
+    		console.log("right")
+    		$.getJSON("http://" +location.hostname+":4040"+"/", {
+    			a: 1,
+    			dataType: 'jsonp',
+    			crossDomain: true,
+    			async: false,
+      		}, function(data) {
+        $("#status").text(data.result);
+    	});
+      return false;
+    });
+  });
+</script>
+	</head>
+	<body>
+		<h1>This is a one way stream, your webcam isnt working. kthxbi</h1><br>
+		<img id="bg" src="{{ url_for('frame') }}"><br>
+		<button class="left"><</button><button class="right">></button><br>
+		<span class="result" id="status"></span>
+	</body>
+</html>

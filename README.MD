@@ -1,0 +1,1 @@
+Stream is a simple web app, which uses a motor and a webcam and 2 flask servers to generate a live feed, and give the client control of the motor to which the webcam is connected so that the client can get a 360 degree view of the room.
