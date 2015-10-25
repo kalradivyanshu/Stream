@@ -1,6 +1,6 @@
 <html>
   <head>
-	<title>Stream</title>
+	<title>360&#186; Stream</title>
 	 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script type=text/javascript>
 		$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
@@ -33,11 +33,21 @@
     });
   });
 </script>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
 	</head>
-	<body>
-		<h1>This is a one way stream, your webcam isnt working. kthxbi</h1><br>
-		<img id="bg" src="{{ url_for('frame') }}"><br>
-		<button class="left"><</button><button class="right">></button><br>
+	<body style="font-family: 'Open Sans', sans-serif; overflow-x:hidden;">
+		<div style="text-align:center;"><h1>360&#186; Stream</h1></div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+		<img id="bg" src="{{ url_for('frame') }}"><br><br>
+    <div class="row">
+      <div class="col-md-2 col-md-offset-5">
+		    <button class="left btn btn-default"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button><button class="right btn btn-default"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></button><br>
+      </div>
+    </div>
 		<span class="result" id="status"></span>
+  </div>
+</div>
 	</body>
 </html>
